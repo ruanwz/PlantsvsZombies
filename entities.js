@@ -5,11 +5,22 @@ class Plant {
         this.width = CELL_SIZE - 10;
         this.height = CELL_SIZE - 10;
         this.health = 100;
+        this.maxHealth = 100;
         this.timer = 0;
     }
 
     draw() {
         // Base draw
+    }
+
+    drawHealthBar() {
+        if (this.health < this.maxHealth) {
+            const percent = Math.max(0, this.health / this.maxHealth);
+            ctx.fillStyle = 'red';
+            ctx.fillRect(this.x, this.y - 10, this.width, 5);
+            ctx.fillStyle = 'green';
+            ctx.fillRect(this.x, this.y - 10, this.width * percent, 5);
+        }
     }
 
     update() {
@@ -31,6 +42,7 @@ class Peashooter extends Plant {
             ctx.fillStyle = '#4CAF50';
             ctx.fillRect(this.x + 10, this.y + 10, this.width, this.height);
         }
+        this.drawHealthBar();
     }
 
     update() {
@@ -47,6 +59,7 @@ class Sunflower extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 80;
+        this.maxHealth = 80;
         this.sunTimer = 0;
     }
 
@@ -57,6 +70,7 @@ class Sunflower extends Plant {
             ctx.fillStyle = 'yellow';
             ctx.fillRect(this.x + 10, this.y + 10, this.width, this.height);
         }
+        this.drawHealthBar();
     }
 
     update() {
@@ -72,12 +86,14 @@ class WallNut extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 400; // High health
+        this.maxHealth = 400;
     }
 
     draw() {
         if (loadedImages.wallnut) {
             ctx.drawImage(loadedImages.wallnut, this.x, this.y, this.width, this.height);
         }
+        this.drawHealthBar();
     }
 }
 
@@ -85,6 +101,7 @@ class CherryBomb extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 100;
+        this.maxHealth = 100;
         this.timer = 0;
     }
 
@@ -92,6 +109,7 @@ class CherryBomb extends Plant {
         if (loadedImages.cherrybomb) {
             ctx.drawImage(loadedImages.cherrybomb, this.x, this.y, this.width, this.height);
         }
+        this.drawHealthBar();
     }
 
     update() {
@@ -131,6 +149,7 @@ class SnowPea extends Plant {
         if (loadedImages.snowpea) {
             ctx.drawImage(loadedImages.snowpea, this.x, this.y, this.width, this.height);
         }
+        this.drawHealthBar();
     }
 
     update() {
@@ -154,6 +173,7 @@ class Repeater extends Plant {
         if (loadedImages.repeater) {
             ctx.drawImage(loadedImages.repeater, this.x, this.y, this.width, this.height);
         }
+        this.drawHealthBar();
     }
 
     update() {
@@ -174,6 +194,7 @@ class PotatoMine extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 100;
+        this.maxHealth = 100;
         this.armTimer = 0;
         this.armed = false;
     }
@@ -185,6 +206,7 @@ class PotatoMine extends Plant {
             ctx.drawImage(loadedImages.potatomine, this.x, this.y, this.width, this.height);
             ctx.restore();
         }
+        this.drawHealthBar();
     }
 
     update() {
@@ -211,6 +233,7 @@ class Chomper extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 100;
+        this.maxHealth = 100;
         this.state = 'idle'; // idle, chewing
         this.chewTimer = 0;
     }
@@ -219,6 +242,7 @@ class Chomper extends Plant {
         if (loadedImages.chomper) {
             ctx.drawImage(loadedImages.chomper, this.x, this.y, this.width, this.height);
         }
+        this.drawHealthBar();
     }
 
     update() {
