@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    background-color: #4CAF50;
+    /* Fallback/Lawn color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#game-canvas {
+    display: block;
+    background: linear-gradient(to bottom, #81C784 0%, #66BB6A 100%);
+    /* Simple lawn gradient */
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    pointer-events: none;
+    /* Let clicks pass through to canvas mostly, but we'll enable for cards */
+}
+
+#sun-counter {
+    font-size: 24px;
+    color: #FFEB3B;
+    font-weight: bold;
+    margin-right: 40px;
+    text-shadow: 2px 2px 0 #000;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    pointer-events: auto;
+}
+
+#plant-selection {
+    display: flex;
+    gap: 10px;
+    pointer-events: auto;
+}
+
+.plant-card {
+    width: 60px;
+    height: 70px;
+    background-color: #eee;
+    border: 2px solid #888;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.1s;
+}
+
+.plant-card:hover {
+    transform: scale(1.05);
+    border-color: #fff;
+}
+
+.plant-card:active {
+    transform: scale(0.95);
+}
+
+.card-cost {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.peashooter-icon {
+    background-image: url('assets/peashooter.svg');
+}
+
+.sunflower-icon {
+    background-image: url('assets/sunflower.svg');
+}
+
+/* Fallback if JS fails */
+
+#settings-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 100;
+    width: 400px;
+    text-align: center;
+}
+
+.setting-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#plant-options,
+#zombie-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
