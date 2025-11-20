@@ -1,16 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-        <defs>
-            <radialGradient id="snowHead" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
-                <stop offset="0%" style="stop-color:#4FC3F7;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#0288D1;stop-opacity:1" />
-            </radialGradient>
-        </defs>
-        <path d="M45,60 Q40,90 50,100 Q60,90 55,60" fill="#0277BD" />
-        <circle cx="50" cy="40" r="30" fill="url(#snowHead)" stroke="#01579B" stroke-width="2"/>
-        <ellipse cx="35" cy="35" rx="5" ry="8" fill="black" />
-        <ellipse cx="65" cy="35" rx="5" ry="8" fill="black" />
-        <path d="M75,40 Q95,40 95,50 Q95,60 75,60" fill="#81D4FA" stroke="#0277BD" stroke-width="2"/>
-        <circle cx="85" cy="50" r="8" fill="black" opacity="0.3"/>
-        <path d="M20,40 Q5,30 15,10 Q25,20 25,35" fill="#81D4FA" stroke="#0277BD" stroke-width="1"/>
-        <path d="M40,10 L45,20 L55,15 L50,25 L65,30 L55,35 L65,45 L55,50 L60,60 L50,55 L40,65 L30,55 L20,60 L25,50 L15,45 L25,35 L15,30 L30,25 L25,15 L35,20 Z" fill="white" opacity="0.5" transform="scale(0.3) translate(120, 50)"/>
-    </svg>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="snowHeadGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#81D4FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0277BD;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <!-- Leaves -->
+  <path d="M50 80 Q20 80 10 60 Q20 90 50 90 T90 60 Q80 80 50 80" fill="#0288D1" stroke="#01579B" stroke-width="2"/>
+  <!-- Stem -->
+  <path d="M50 80 Q50 60 40 50" fill="none" stroke="#0277BD" stroke-width="8" stroke-linecap="round"/>
+  <!-- Head -->
+  <circle cx="40" cy="40" r="25" fill="url(#snowHeadGrad)" stroke="#01579B" stroke-width="2"/>
+  <!-- Snout -->
+  <path d="M60 25 Q75 25 80 40 Q75 55 60 55 Z" fill="#4FC3F7" stroke="#01579B" stroke-width="2"/>
+  <ellipse cx="80" cy="40" rx="5" ry="8" fill="#01579B"/>
+  <!-- Ice Crystals -->
+  <path d="M30 20 L35 30 M30 30 L35 20 M25 25 L40 25" stroke="white" stroke-width="2"/>
+  <!-- Eye -->
+  <circle cx="45" cy="35" r="5" fill="black"/>
+  <circle cx="47" cy="33" r="2" fill="white"/>
+</svg>

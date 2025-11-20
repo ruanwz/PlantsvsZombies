@@ -1,7 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-        <ellipse cx="50" cy="55" rx="35" ry="40" fill="#795548" stroke="#3E2723" stroke-width="3"/>
-        <ellipse cx="50" cy="50" rx="30" ry="35" fill="#8D6E63" />
-        <circle cx="35" cy="40" r="5" fill="black" />
-        <circle cx="65" cy="40" r="5" fill="black" />
-        <path d="M45,55 Q50,60 55,55" fill="none" stroke="black" stroke-width="2" />
-    </svg>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="nutGrad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#D7CCC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8D6E63;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="50" cy="50" rx="30" ry="40" fill="url(#nutGrad)" stroke="#5D4037" stroke-width="3"/>
+  <!-- Eyes -->
+  <circle cx="40" cy="40" r="6" fill="white"/>
+  <circle cx="42" cy="40" r="2" fill="black"/>
+  <circle cx="60" cy="40" r="6" fill="white"/>
+  <circle cx="58" cy="40" r="2" fill="black"/>
+  <!-- Mouth -->
+  <path d="M45 60 Q50 65 55 60" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"/>
+  <!-- Texture lines -->
+  <path d="M30 20 Q50 10 70 20" fill="none" stroke="#5D4037" stroke-width="1" opacity="0.5"/>
+  <path d="M30 80 Q50 90 70 80" fill="none" stroke="#5D4037" stroke-width="1" opacity="0.5"/>
+</svg>

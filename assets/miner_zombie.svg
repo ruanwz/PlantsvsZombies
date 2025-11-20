@@ -1,0 +1,20 @@
+<svg width="60" height="90" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <rect x="20" y="30" width="20" height="40" fill="#1976D2" />
+  <!-- Head -->
+  <circle cx="30" cy="20" r="15" fill="#9E9E9E" />
+  <!-- Miner Hat -->
+  <path d="M 15 15 Q 30 5 45 15 L 45 18 L 15 18 Z" fill="#FFC107" />
+  <circle cx="30" cy="10" r="4" fill="#FFFF00" stroke="#F57F17" />
+  <!-- Eyes -->
+  <circle cx="25" cy="22" r="3" fill="white" />
+  <circle cx="35" cy="22" r="3" fill="white" />
+  <circle cx="25" cy="22" r="1" fill="black" />
+  <circle cx="35" cy="22" r="1" fill="black" />
+  <!-- Pickaxe -->
+  <line x1="40" y1="40" x2="55" y2="55" stroke="#795548" stroke-width="3" />
+  <path d="M 50 50 Q 55 45 60 50" stroke="#9E9E9E" stroke-width="3" fill="none" />
+  <!-- Legs -->
+  <rect x="20" y="70" width="8" height="20" fill="#3E2723" />
+  <rect x="32" y="70" width="8" height="20" fill="#3E2723" />
+</svg>

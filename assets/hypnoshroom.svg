@@ -1,0 +1,25 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="hypnoGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FF80AB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C51162;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <!-- Stem -->
+  <path d="M45 90 L45 60 Q35 60 35 50 L65 50 Q65 60 55 60 L55 90" fill="#FCE4EC" stroke="#C51162" stroke-width="2"/>
+  <!-- Cap -->
+  <path d="M20 50 Q50 10 80 50" fill="url(#hypnoGrad)" stroke="#880E4F" stroke-width="2"/>
+  <!-- Swirl -->
+  <path d="M50 25 Q60 25 60 35 Q60 45 50 45 Q40 45 40 35 Q40 25 50 25" fill="none" stroke="white" stroke-width="3" stroke-dasharray="5,5">
+    <animateTransform attributeName="transform" type="rotate" from="0 50 35" to="360 50 35" dur="3s" repeatCount="indefinite"/>
+  </path>
+  <!-- Eyes (Swirly) -->
+  <g transform="translate(40,60)">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="black" stroke-width="1"/>
+    <path d="M-2 0 L2 0 M0 -2 L0 2" stroke="black" stroke-width="1"/>
+  </g>
+  <g transform="translate(60,60)">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="black" stroke-width="1"/>
+    <path d="M-2 0 L2 0 M0 -2 L0 2" stroke="black" stroke-width="1"/>
+  </g>
+</svg>

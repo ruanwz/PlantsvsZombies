@@ -1,0 +1,18 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="iceGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#B3E5FC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0288D1;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <!-- Stem -->
+  <path d="M45 90 L45 60 Q35 60 35 50 L65 50 Q65 60 55 60 L55 90" fill="#E1F5FE" stroke="#0288D1" stroke-width="2"/>
+  <!-- Cap -->
+  <path d="M20 50 Q50 10 80 50" fill="url(#iceGrad)" stroke="#01579B" stroke-width="2"/>
+  <!-- Crystals -->
+  <path d="M30 30 L35 40 M50 20 L50 30 M70 30 L65 40" stroke="white" stroke-width="2"/>
+  <!-- Face (Angry/Cold) -->
+  <path d="M40 60 L50 65 L60 60" fill="none" stroke="#01579B" stroke-width="2"/>
+  <circle cx="40" cy="55" r="2" fill="black"/>
+  <circle cx="60" cy="55" r="2" fill="black"/>
+</svg>

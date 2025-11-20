@@ -1,0 +1,19 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="tallNutGrad" cx="30%" cy="30%" r="80%">
+      <stop offset="0%" style="stop-color:#D7CCC8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5D4037;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <rect x="30" y="10" width="40" height="80" rx="20" ry="20" fill="url(#tallNutGrad)" stroke="#3E2723" stroke-width="3"/>
+  <!-- Eyes (Serious) -->
+  <circle cx="40" cy="40" r="5" fill="white"/>
+  <circle cx="40" cy="40" r="2" fill="black"/>
+  <circle cx="60" cy="40" r="5" fill="white"/>
+  <circle cx="60" cy="40" r="2" fill="black"/>
+  <path d="M35 35 L45 38" stroke="black" stroke-width="1"/>
+  <path d="M65 35 L55 38" stroke="black" stroke-width="1"/>
+  <!-- Mouth -->
+  <path d="M45 60 L55 60" stroke="black" stroke-width="2"/>
+</svg>

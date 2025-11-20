@@ -1,0 +1,19 @@
+<svg width="60" height="90" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <rect x="20" y="30" width="20" height="40" fill="#5D4037" />
+  <!-- Head -->
+  <circle cx="30" cy="20" r="15" fill="#9E9E9E" />
+  <!-- Eyes -->
+  <circle cx="25" cy="18" r="3" fill="white" />
+  <circle cx="35" cy="18" r="3" fill="white" />
+  <circle cx="25" cy="18" r="1" fill="black" />
+  <circle cx="35" cy="18" r="1" fill="black" />
+  <!-- Newspaper -->
+  <rect x="15" y="35" width="30" height="35" fill="#E0E0E0" stroke="#757575" stroke-width="1" />
+  <line x1="18" y1="40" x2="42" y2="40" stroke="#757575" stroke-width="1" />
+  <line x1="18" y1="45" x2="42" y2="45" stroke="#757575" stroke-width="1" />
+  <line x1="18" y1="50" x2="42" y2="50" stroke="#757575" stroke-width="1" />
+  <!-- Legs -->
+  <rect x="20" y="70" width="8" height="20" fill="#3E2723" />
+  <rect x="32" y="70" width="8" height="20" fill="#3E2723" />
+</svg>

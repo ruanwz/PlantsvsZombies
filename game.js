@@ -12,6 +12,7 @@ const grid = [];
 const plants = [];
 const zombies = [];
 const projectiles = [];
+const particles = [];
 const suns = [];
 
 // Initialize Grid
@@ -31,17 +32,55 @@ function initSettingsUI() {
 
     DEFAULT_CONFIG.plants.forEach(p => {
         const label = document.createElement('label');
-        label.style.display = 'inline-block';
-        label.style.marginRight = '10px';
-        label.innerHTML = `<input type="checkbox" value="${p}" checked> ${p}`;
+        label.style.display = 'inline-flex';
+        label.style.alignItems = 'center';
+        label.style.marginRight = '15px';
+        label.style.cursor = 'pointer';
+
+        const img = document.createElement('img');
+        img.src = ASSETS[p];
+        img.style.width = '30px';
+        img.style.height = '30px';
+        img.style.marginRight = '5px';
+        img.style.verticalAlign = 'middle';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = p;
+        checkbox.checked = true;
+        checkbox.style.marginRight = '5px';
+
+        label.appendChild(checkbox);
+        label.appendChild(img);
+        label.appendChild(document.createTextNode(p));
+
         plantContainer.appendChild(label);
     });
 
     DEFAULT_CONFIG.zombies.forEach(z => {
         const label = document.createElement('label');
-        label.style.display = 'inline-block';
-        label.style.marginRight = '10px';
-        label.innerHTML = `<input type="checkbox" value="${z}" checked> ${z}`;
+        label.style.display = 'inline-flex';
+        label.style.alignItems = 'center';
+        label.style.marginRight = '15px';
+        label.style.cursor = 'pointer';
+
+        const img = document.createElement('img');
+        img.src = ASSETS[z];
+        img.style.width = '30px';
+        img.style.height = '45px'; // Taller for zombies
+        img.style.marginRight = '5px';
+        img.style.verticalAlign = 'middle';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = z;
+        checkbox.checked = true;
+        checkbox.style.marginRight = '5px';
+
+        label.appendChild(checkbox);
+        label.appendChild(img);
+        label.appendChild(document.createTextNode(z));
+
         zombieContainer.appendChild(label);
     });
 }
@@ -83,6 +122,8 @@ function initGame() {
     projectiles.length = 0;
     suns.length = 0;
 
+    canvas.width = 900;
+    canvas.height = 700;
     initGrid();
     updateSunDisplay();
     renderPlantSelection();
@@ -165,6 +206,24 @@ function createPlant(type, x, y) {
         case 'potatomine': plants.push(new PotatoMine(x, y)); break;
         case 'chomper': plants.push(new Chomper(x, y)); break;
         case 'repeater': plants.push(new Repeater(x, y)); break;
+        case 'jalapeno': plants.push(new Jalapeno(x, y)); break;
+        case 'squash': plants.push(new Squash(x, y)); break;
+        case 'spikeweed': plants.push(new Spikeweed(x, y)); break;
+        case 'threepeater': plants.push(new Threepeater(x, y)); break;
+        case 'torchwood': plants.push(new Torchwood(x, y)); break;
+        case 'tallnut': plants.push(new TallNut(x, y)); break;
+        case 'puffshroom': plants.push(new PuffShroom(x, y)); break;
+        case 'sunshroom': plants.push(new SunShroom(x, y)); break;
+        case 'fumeshroom': plants.push(new FumeShroom(x, y)); break;
+        case 'hypnoshroom': plants.push(new HypnoShroom(x, y)); break;
+        case 'scaredyshroom': plants.push(new ScaredyShroom(x, y)); break;
+        case 'iceshroom': plants.push(new IceShroom(x, y)); break;
+        case 'doomshroom': plants.push(new DoomShroom(x, y)); break;
+        case 'splitpea': plants.push(new SplitPea(x, y)); break;
+        case 'starfruit': plants.push(new Starfruit(x, y)); break;
+        case 'magnetshroom': plants.push(new MagnetShroom(x, y)); break;
+        case 'cabbagepult': plants.push(new CabbagePult(x, y)); break;
+        case 'melonpult': plants.push(new MelonPult(x, y)); break;
     }
 }
 
@@ -182,6 +241,24 @@ function getPlantCost(type) {
     if (type === 'potatomine') return 25;
     if (type === 'chomper') return 150;
     if (type === 'repeater') return 200;
+    if (type === 'jalapeno') return 125;
+    if (type === 'squash') return 50;
+    if (type === 'spikeweed') return 100;
+    if (type === 'threepeater') return 325;
+    if (type === 'torchwood') return 175;
+    if (type === 'tallnut') return 125;
+    if (type === 'puffshroom') return 0;
+    if (type === 'sunshroom') return 25;
+    if (type === 'fumeshroom') return 75;
+    if (type === 'hypnoshroom') return 75;
+    if (type === 'scaredyshroom') return 25;
+    if (type === 'iceshroom') return 75;
+    if (type === 'doomshroom') return 125;
+    if (type === 'splitpea') return 125;
+    if (type === 'starfruit') return 125;
+    if (type === 'magnetshroom') return 100;
+    if (type === 'cabbagepult') return 100;
+    if (type === 'melonpult') return 300;
     return 0;
 }
 
@@ -208,8 +285,10 @@ function animate() {
         // Check for collision with zombies (simple check for now)
         for (let j = 0; j < zombies.length; j++) {
             if (plants[i] && zombies[j] && collision(plants[i], zombies[j])) {
-                plants[i].health -= 0.2;
-                zombies[j].movement = 0; // Stop moving to eat
+                if (!(plants[i] instanceof Spikeweed)) {
+                    plants[i].health -= 0.2;
+                    zombies[j].movement = 0; // Stop moving to eat
+                }
             } else if (zombies[j]) {
                 // Only reset movement if not eating ANY plant
                 // But for simplicity, if we are not colliding with THIS plant, we might be colliding with another.
@@ -232,6 +311,16 @@ function animate() {
 
     // Manage Zombies
     handleZombies();
+
+    // Handle particles
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].life <= 0) {
+            particles.splice(i, 1);
+            i--;
+        }
+    }
 
     // Manage Projectiles
     handleProjectiles();
@@ -306,8 +395,25 @@ function handleZombies() {
 
         // Pick a random type from config
         if (config.zombies.length > 0) {
-            const type = config.zombies[Math.floor(Math.random() * config.zombies.length)];
-            zombies.push(new Zombie(row * CELL_SIZE + TOP_OFFSET, type));
+            let type = config.zombies[Math.floor(Math.random() * config.zombies.length)];
+            let zombie;
+            const zombieY = row * CELL_SIZE + TOP_OFFSET;
+            if (type === 'conehead') {
+                zombie = new ConeHeadZombie(zombieY);
+            } else if (type === 'buckethead') {
+                zombie = new BucketHeadZombie(zombieY);
+            } else if (type === 'newspaper') {
+                zombie = new NewspaperZombie(zombieY);
+            } else if (type === 'balloon') {
+                zombie = new BalloonZombie(zombieY);
+            } else if (type === 'allstar') {
+                zombie = new AllStarZombie(zombieY);
+            } else if (type === 'miner') {
+                zombie = new MinerZombie(zombieY);
+            } else {
+                zombie = new Zombie(zombieY);
+            }
+            zombies.push(zombie);
         }
     }
 }

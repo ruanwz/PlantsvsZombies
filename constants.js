@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 const CELL_SIZE = 100;
 const GRID_ROWS = 5;
 const GRID_COLS = 9;
-const TOP_OFFSET = 100; // Space for UI
+const TOP_OFFSET = 180; // Space for UI
 // The canvas is 900x600. The UI is an overlay.
 // If the canvas takes up the whole game-container, then y=0 is the top.
 // But we want the lawn to start below the UI?
@@ -20,7 +20,6 @@ const TOP_OFFSET = 100; // Space for UI
 // Global Game State Variables
 const DEFAULT_CONFIG = {
     startSun: 50,
-    plants: ['peashooter', 'sunflower', 'wallnut', 'cherrybomb', 'snowpea', 'potatomine', 'chomper', 'repeater'],
-    zombies: ['normal', 'conehead', 'buckethead', 'flagzombie', 'newspaperzombie']
+    plants: ['peashooter', 'sunflower', 'wallnut', 'cherrybomb', 'snowpea', 'potatomine', 'chomper', 'repeater', 'jalapeno', 'squash', 'spikeweed', 'threepeater', 'torchwood', 'tallnut', 'puffshroom', 'sunshroom', 'fumeshroom', 'hypnoshroom', 'scaredyshroom', 'iceshroom', 'doomshroom', 'splitpea', 'starfruit', 'magnetshroom', 'cabbagepult', 'melonpult'],
+    zombies: ['normal', 'conehead', 'buckethead', 'newspaper', 'balloon', 'allstar', 'miner', 'flagzombie', 'newspaperzombie']
 };
-
