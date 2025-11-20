@@ -32,6 +32,7 @@ class Peashooter extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 100;
+        this.maxHealth = 100;
         this.shootTimer = 0;
     }
 
@@ -142,6 +143,7 @@ class SnowPea extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 100;
+        this.maxHealth = 100;
         this.shootTimer = 0;
     }
 
@@ -166,6 +168,7 @@ class Repeater extends Plant {
     constructor(x, y) {
         super(x, y);
         this.health = 100;
+        this.maxHealth = 100;
         this.shootTimer = 0;
     }
 
